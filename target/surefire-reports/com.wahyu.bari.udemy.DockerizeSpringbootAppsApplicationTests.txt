@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.wahyu.bari.udemy.DockerizeSpringbootAppsApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.97 s - in com.wahyu.bari.udemy.DockerizeSpringbootAppsApplicationTests

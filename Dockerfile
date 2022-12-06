@@ -9,7 +9,7 @@ adduser -r -g www-data www-data
 WORKDIR /usr/local/share/applications
 USER www-data
 
-ARG JAR_FILE="docker-springboot-0.0.1-SNAPSHOT.jar"
+ARG JAR_FILE="docker-springboot-0.0.2-release.jar"
 ADD --chown=www-data:www-data target/$JAR_FILE spring-boot.jar
 
 ENTRYPOINT ["java", "-jar", "-Djava.security.egd=file:/dev/./urandom", "spring-boot.jar"]

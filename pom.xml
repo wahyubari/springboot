@@ -10,11 +10,15 @@
 	</parent>
 	<groupId>com.wahyu.bari.udemy</groupId>
 	<artifactId>docker-springboot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-release</version>
 	<name>Dockerize Springboot Apps</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<final-name>${project.artifactId}-${project.version}</final-name>
+		<docker-registry-group>wahyubari</docker-registry-group>
+		<docker-registry-host-push>docker.io</docker-registry-host-push>
+		<docker-registry-host-pull>docker.io</docker-registry-host-pull>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,12 +58,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<!-- tambahkan ini -->
+					<executable>true</executable>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<configuration>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+					<dockerfile>Dockerfile</dockerfile>
+					<contextDirectory>.</contextDirectory>
+					<repository>${docker-registry-host-push}/${docker-registry-group}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
 				</configuration>
 			</plugin>
 		</plugins>
