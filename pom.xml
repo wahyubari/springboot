@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.wahyu.bari.udemy</groupId>
 	<artifactId>docker-springboot</artifactId>
-	<version>0.0.2-release</version>
+	<version>2022.12.7.release</version>
 	<name>Dockerize Springboot Apps</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
